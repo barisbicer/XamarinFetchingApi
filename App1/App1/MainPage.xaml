@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:App1.ViewModel"
+             xmlns:syncfusion="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
+             x:Class="App1.MainPage" Padding="10">
+
+
+    <Grid >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Label Text="Fetched data from REST Api" BackgroundColor="SlateBlue" FontSize="18" FontAttributes="Bold" TextColor="White" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+        <syncfusion:SfListView x:Name="listView" ItemSize="90" ItemSpacing="5" Grid.Row="1"
+                               BackgroundColor="AliceBlue" ItemsSource="{Binding Items}">
+            <syncfusion:SfListView.ItemTemplate>
+                <DataTemplate>
+                    <Frame BorderColor="#757575" Padding="5">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Label Grid.Row="0" Grid.Column="0" Text="ID  " HorizontalOptions="Start" TextColor="Black" FontSize="16" FontAttributes="Bold"/>
+                            <Label Grid.Row="1" Grid.Column="0" Text="Park  " HorizontalOptions="Start" TextColor="Black" FontSize="16" FontAttributes="Bold"/>
+                            <Label Grid.Row="2" Grid.Column="0" Text="CallSign  " HorizontalOptions="Start" TextColor="Black" FontSize="16" FontAttributes="Bold"/>
+
+                            <Label Grid.Row="0" Grid.Column="1" Text="{Binding PgtId}" HorizontalOptions="Start" TextColor="Black" FontSize="16" WidthRequest="100"/>
+                            <Label Grid.Row="1" Grid.Column="1" Text="{Binding Newparkpos}" HorizontalOptions="Start" TextColor="Black" WidthRequest="100"/>
+                            <Label Grid.Row="2" Grid.Column="1" Text="{Binding Rkgelcag}" HorizontalOptions="Start" TextColor="Black" WidthRequest="100"/>
+                        </Grid>
+                    </Frame>
+                </DataTemplate>
+            </syncfusion:SfListView.ItemTemplate>
+        </syncfusion:SfListView>
+
+    </Grid>
+
+
+
+</ContentPage>
